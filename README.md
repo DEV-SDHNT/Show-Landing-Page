@@ -27,7 +27,7 @@
 ### 4.Responsiveness
 
 <ul>
-<li>Added some mediaQueries adjust font sizes and spaces for similar screens.
+<li>Added some MediaQueries adjust font sizes and spaces for similar screens.
 <li>The horizontal scroll for episodes and character section remains accessible w/o breaking layout.
 </ul>
 
