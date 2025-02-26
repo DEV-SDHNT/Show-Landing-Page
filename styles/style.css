@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:transparent;
+    padding: 15px 10px;
+    color: white;
+    position:relative;
+    z-index: 30;
+    width: 100%;
+    box-shadow: black 0 0px 60px,black 0 10px 60px;
+}
+.nav-links{
+    margin-left: 10px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    text-align: center;
+    gap: 100px;
+}
+.nav-links li{
+    text-align: center;
+    display: flex;
+    align-self: center;
+    font-weight: 800;
+}
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.menu-toggle{
+    background:transparent;
+    position: absolute;
+    left: 5%;
+    margin-top: 10px;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset #000 0 0 10px;
+}
+.menu-icon{
+    background:radial-gradient(white 5% ,black);
+    height: 40px;
+    width: 40px;
+    border: solid black 4px;
+    border-radius: 40px;
+    box-shadow: inset #000 0 0 10px;
+}
+
+/* Hero Section */
+.hero {
+position: relative;
+width: 100%;
+min-height: 75vh;
+background-size: cover;
+background-position: center center;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding: 2rem;
+box-shadow: #000 0 0 25px inset ,#000 0 0 15rem inset ;
+}
+
+.overlay {
+position: absolute;
+top: 0; 
+left: 0; 
+right: 0; 
+bottom: 0;
+background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 70%);
+pointer-events: none; /* So we can still click elements in the hero */
+}
+
+.hero-content {
+position: relative;
+z-index: 1;
+max-width: 600px;
+/* align-self: center; */
+}
+
+.hero-content h1 {
+font-size: 2rem;
+margin-bottom: 0.5rem;
+font-weight: 700;
+}
+
+.meta-info {
+font-size: 0.9rem;
+color: #46d369; /* Netflix-like green for match percentage */
+margin-bottom: 1rem;
+}
+
+.hero-buttons {
+margin-bottom: 1rem;
+z-index: 2;
+}
+
+.hero-buttons button {
+background-color: #e50914;
+border: solid #e50914 1px;
+padding: 0.9rem 1.0rem;
+margin-right: 0.5rem;
+color: #fff;
+font-size: 1rem;
+cursor: pointer;
+border-radius: 1px;
+}
+.hero-buttons button:hover{
+animation: focused 1s ease forwards ;
+}
+@keyframes focused {
+from{
+    background-color: #e50914;
+}
+to{
+    background-color: #c10914;
+}
+
+}
+
+.hero-buttons button.my-list {
+background-color: rgba(109, 109, 110, 0.3);
+border: solid 2px;
+}
+
+.hero-buttons button.my-list:hover{
+animation: focused1 1s ease forwards ;
+}
+@keyframes focused1 {
+from{
+    background-color: rgba(109, 109, 110, 0.7);
+}
+to{
+    background-color: rgba(209, 209, 209, 1);
+}
+
+}
+
+.hero-description {
+font-size: 0.95rem;
+line-height: 1.4;
+max-width: 80%;
+}
+
+/* Episodes Section */
+.episodes-section {
+padding: 2rem ;
+box-shadow: #000 0 0 100px;
+}
+
+.episodes-section h2 {
+font-size: 1.5rem;
+margin-bottom: 1rem;
+}
+
+.episodes-container {
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+white-space: nowrap;
+width: 100%;
+}
+.episodes-list{
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+white-space: nowrap;
+width: 100%;
+}
+.scroll-left, .scroll-right{
+position: absolute;
+background-color: transparent;
+color: white;
+border: none;
+padding: 10px 5px;
+cursor: pointer;
+font-size: 25px;
+z-index: 10;
+display: flex;
+align-self: center;
+}
+.scroll-left{
+left: 0;
+}
+.scroll-right{
+right: 0;
+}
+
+.episode-card {
+flex: 0 0 auto;
+width: 200px;
+background-color: transparent;
+border-radius: 4px;
+overflow: hidden;
+}
+
+.episode-card:hover h6{
+    color: #f12;
+}
+.episode-card .episode-thumbnail {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.episode-card .episode-thumbnail:hover{
+    opacity: 0.5;
+    box-shadow: red 0 0 20px;
+}
+/* 
+.episode-info {
+padding: 0.5rem;
+} */
+
+.episode-card h6 {
+margin-bottom: 0.3rem;
+color: #fff;
+position: relative;
+bottom: 20px;
+left: 10px;
+font-size: 13px;
+backdrop-filter: blur(6px);
+}
+
+/* .episode-info p {
+font-size: 0.85rem;
+color: #ccc;
+line-height: 1.2;
+} */
+
+/* Characters Section (if you want to display them) */
+.characters-section {
+padding: 2rem;
+}
+
+.characters-section h6 {
+font-size: 13px;
+margin-bottom: 1rem;
+}
+
+.characters-container {
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+}
+
+.characters-list{
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+scroll-behavior: smooth;
+scrollbar-width: none;
+white-space: nowrap;
+width: 100%;
+}
+.scroll-left-character, .scroll-right-character{
+position: absolute;
+background-color: transparent;
+color: white;
+border: none;
+padding: 10px 5px;
+cursor: pointer;
+font-size: 25px;
+z-index: 10;
+display: flex;
+align-self: center;
+}
+.scroll-left-character{
+left: 0;
+}
+.scroll-right-character{
+right: 0;
+}
+
+.character-card {
+flex: 0 0 auto;
+width: 150px;
+text-align: center;
+}
+
+.character-card img {
+width: 100%;
+height: 84.38px;
+border-radius: 4px;
+display: block;
+}
+
+.character-card h4 {
+margin: 0.5rem 0 0.2rem;
+font-size: 1rem;
+}
+
+.character-card p {
+font-size: 0.85rem;
+color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.hero-content h1 {
+font-size: 1.5rem;
+}
+.hero-buttons button {
+font-size: 0.9rem;
+padding: 0.6rem 1rem;
+}
+.hero-description {
+max-width: 100%;
+}
+.episodes-section, .characters-section {
+padding: 1rem;
+}
+.nav-links{
+display: none;
+flex-direction: column;
+position: absolute;
+top: 60px;
+left: 50%;
+translate: -50%;
+background-color: rgba(0,0,0,0.6);
+width: 100%;
+padding: 15px;
+backdrop-filter: blur(3px);
+}
+.nav-links.active{
+display: flex;
+}
+.menu-toggle{
+display: block;
+}
+}
+

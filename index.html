@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sacred Games Landing Page</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tv Shows</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Recently Added</a></li>
+        </ul>
+        <button class="menu-toggle"><img src="menu.svg" class="menu-icon" ></button>
+    </nav>
+    
+    <!-- Hero Section -->
+  <div class="hero" id="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <!-- <h1 id="series-title">Series Title</h1> -->
+      <div class="meta-info" id="meta-info">98% Match • Episode 1</div>
+      <div class="hero-buttons">
+        <button>Resume</button>
+        <button class="my-list">+ My List</button>
+      </div>
+      <!-- <p class="hero-description" id="series-desc">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p> -->
+    </div>
+  </div>
+
+  <!-- Episodes Section -->
+  <div class="episodes-section">
+    <div class="episodes-container" id="episodes-container">
+        <button class="scroll-left" id="scroll-left"><</button>
+         <div class="episodes-list" id="episodes-list">
+         </div>
+        <button class="scroll-right" id="scroll-right">></button>
+    </div>
+  </div>
+
+  <!-- Characters Section (optional) -->
+  <div class="characters-section">
+    <h2>Characters</h2>
+    <div class="characters-container" id="characters-container">
+        <button class="scroll-left-character" id="scroll-left-character"><</button>
+      <div class="characters-list" id="characters-list">
+      <button class="scroll-right-character" id="scroll-right-character">></button>
+
+    </div>
+  </div>
+<script>
+        const data = {
+      "characters": [
+        {
+          "id": 1,
+          "name": "Sartaj Singh",
+          "age": 35,
+          "profession": "Inspector",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/sartaj-singh.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Ganesh Gaitonde",
+          "age": 55,
+          "profession": "Don",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/ganesh-gaitonde.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Anjali Mathur",
+          "age": 32,
+          "profession": "RAW Officer",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/anjali-mathur.jpg"
+        },
+        {
+          "id": 4,
+          "name": "Khanna Guruji",
+          "age": 65,
+          "profession": "Saint",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/guruji.jpg"
+        },
+        {
+          "id": 5,
+          "name": "Dilip Parulkar",
+          "age": 60,
+          "profession": "DCP",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/dilip-parulkar.jpg"
+        }
+      ],
+      "series": {
+        "title": "Sacred Games",
+        "ott": "Netflix",
+        "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/sacred-games-netflix.jpg",
+        "desc": "Sacred Games is an Indian crime thriller web series based on Vikram Chandra's 2006 novel of the same name. India's first Netflix original series, it was produced and directed by Vikramaditya Motwane and Anurag Kashyap as Phantom Films..."
+      },
+      "episodes": [
+        {
+          "id": 1,
+          "title": "Aswatthama",
+          "description": "Sartaj Singh receives a phone call from gangster Ganesh Gaitonde...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/1.jpg"
+        },
+        {
+          "id": 2,
+          "title": "Halahala",
+          "description": "Ganesh Gaitonde's past is revealed as he rises to become a powerful gangster...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/2.jpg"
+        },
+        {
+          "id": 3,
+          "title": "Atapi Vatapi",
+          "description": "Sartaj delves deeper into Gaitonde's past and comes across links...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/3.jpg"
+        },
+        {
+          "id": 4,
+          "title": "Brahmahatya",
+          "description": "Sartaj uncovers Gaitonde's links to the powerful guru...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/4.jpg"
+        },
+        {
+          "id": 5,
+          "title": "Sarama",
+          "description": "Sartaj's investigations lead him to a dark and unsettling discovery...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/5.jpg"
+        },
+        {
+          "id": 6,
+          "title": "Ravanayan",
+          "description": "Sartaj's investigations take a dangerous turn as he gets closer to the truth...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/6.jpg"
+        },
+        {
+          "id": 7,
+          "title": "Yayati",
+          "description": "Sartaj's pursuit of the truth leads him to confront powerful and corrupt individuals...",
+          "img": "https://repo-tech2edge.github.io/tasks/assets/images/sacred-games/episodes/7.jpg"
+        }
+      ]
+    };
+
+    // ----- Alternatively, you could fetch from an external JSON file or endpoint: -----
+    // fetch('path-or-url-to-json')
+    //   .then(response => response.json())
+    //   .then(jsonData => {
+    //       // use jsonData instead of data
+    //   });
+
+    // Populate the Hero Section
+    const heroSection = document.getElementById('hero-section');
+    const seriesTitle = document.getElementById('series-title');
+    const seriesDesc = document.getElementById('series-desc');
+    const metaInfo = document.getElementById('meta-info');
+
+    // Insert the data
+    heroSection.style.backgroundImage = `url('${data.series.img}')`;
+    // seriesTitle.textContent = `${data.series.title} - Season 1`;
+    // seriesDesc.textContent = data.series.desc;
+    // Hard-coded example "98% Match • Episode 1" for the hero
+    metaInfo.textContent = `98% Match • Episode 1`;
+
+    // Populate Episodes
+    const episodesContainer = document.getElementById('episodes-list');
+    data.episodes.forEach(ep => {
+      const card = document.createElement('div');
+      card.classList.add('episode-card');
+      card.innerHTML = `
+      <img src="${ep.img}" alt="Episode ${ep.id}" class="episode-thumbnail" />
+      <h6>Episode ${ep.id}: ${ep.title}</h6>
+      `;
+      episodesContainer.appendChild(card);
+    });
+
+    document.querySelector(".scroll-left").addEventListener('click',()=>{
+        document.getElementById('episodes-list').scrollBy({left:-300,behaviour:'smooth'});
+    });
+    document.querySelector(".scroll-right").addEventListener('click',()=>{
+        document.getElementById('episodes-list').scrollBy({left:300,behaviour:'smooth'});
+    });
+
+    // Populate Characters (optional)
+    const charactersContainer = document.getElementById('characters-list');
+    data.characters.forEach(char => {
+      const charCard = document.createElement('div');
+      charCard.classList.add('character-card');
+      charCard.innerHTML = `
+        <img src="${char.img}" alt="${char.name}" />
+        <h6>${char.name}</h6>
+      `;
+      charactersContainer.appendChild(charCard);
+    });
+    document.querySelector(".scroll-left-character").addEventListener('click',()=>{
+        document.getElementById('characters-list').scrollBy({left:-300,behaviour:'smooth'});
+    });
+    document.querySelector(".scroll-right-character").addEventListener('click',()=>{
+        document.getElementById('characters-list').scrollBy({left:300,behaviour:'smooth'});
+    });
+
+    document.querySelector(".menu-toggle").addEventListener("click",()=>{
+        document.querySelector(".nav-links").classList.toggle("active");
+    })
+</script>
+</body>
+</html>
